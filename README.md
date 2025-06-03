@@ -1,5 +1,9 @@
 # semrush-api-client
 
+[![Version badge](https://badgen.net/github/release/RenKoya1/semrush-api-client?refresh)](https://github.com/RenKoya1/semrush-api-client/releases)
+
+[![Package size badge](https://badgen.net/bundlephobia/minzip/semrush-api-client)](https://bundlephobia.com/package/semrush-api-client)
+
 A Node.js/TypeScript client for accessing the SEMrush API easily.
 
 ## Installation
