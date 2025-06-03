@@ -1,9 +1,11 @@
 {
-  "name": "semrush-api",
+  "name": "semrush-api-client",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "license": "Apache-2.0",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -11,12 +13,14 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "axios": "^1.9.0",
     "dotenv": "^16.5.0"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/node": "^22.15.29"
   }
