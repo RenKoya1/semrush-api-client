@@ -1,4 +1,4 @@
-# semrush-api
+# semrush-api-client
 
 A Node.js/TypeScript client for accessing the SEMrush API easily.
 
@@ -34,25 +34,6 @@ client.getPhrase({ phrase: "apple" }).then((data) => {
   console.log(data);
 });
 ```
-
-## API Methods
-
-### `getDomainRank(options)`
-
-Fetches ranking information for a specified domain.
-
-- `domain` (string): Target domain
-- `export_columns` (string[], optional): Columns to retrieve
-- `database` (string, optional): Database (country code)
-- `display_limit` (number, optional): Number of results
-
-### `getPhrase(options)`
-
-Fetches information for a specified keyword.
-
-- `phrase` (string): Keyword
-- `export_columns` (string[], optional): Columns to retrieve
-- `database` (string, optional): Database (country code)
 
 ## Contributing
 
