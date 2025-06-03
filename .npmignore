@@ -1,6 +1,5 @@
-src/
-test/
-node_modules/
-tsconfig.json
+./src/
+./test/
+./dist/test/
 .env
 .env.*   

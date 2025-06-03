@@ -23,7 +23,7 @@ SEMRUSH_API_KEY=your_api_key_here
 Then, use the client in your code:
 
 ```ts
-import { SemrushAPIClient } from "semrush-api";
+import { SemrushAPIClient } from "semrush-api-client";
 const client = new SemrushAPIClient({
   api_key: process.env.SEMRUSH_API_KEY!,
 });
