@@ -25,14 +25,10 @@ const client = new SemrushAPIClient({
 });
 
 // Get domain rank
-client.getDomainRank({ domain: "apple.com" }).then((data) => {
-  console.log(data);
-});
+client.getDomainRank({ domain: "apple.com" });
 
 // Get keyword data
-client.getPhrase({ phrase: "apple" }).then((data) => {
-  console.log(data);
-});
+client.getPhrase({ phrase: "apple" });
 ```
 
 ## Contributing
