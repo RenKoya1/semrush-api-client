@@ -1,4 +1,4 @@
-import { client } from ".";
+import { client } from "..";
 
 client
   .getDomainRank({
@@ -6,7 +6,7 @@ client
     display_limit: 10, // Optional, default is 1000
   })
   .then((data) => {
-    console.log("Domain Rank Data:", data);
+    console.log(data);
   });
 
 // Domain;Rank;Organic Keywords;Organic Traffic;Organic Cost

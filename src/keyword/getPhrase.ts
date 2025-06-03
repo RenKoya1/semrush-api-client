@@ -14,14 +14,17 @@ type KeywordExportColumns =
 
 export async function getPhraseAll(
   this: SemrushAPIClient,
+
   {
     phrase,
     export_columns = ["Dt", "Db", "Ph", "Nq", "Cp", "Co", "Nr"],
     database = "us",
+    outputObj = true, // Default to true for output object
   }: {
     phrase: string;
     export_columns?: KeywordExportColumns[];
     database?: Database;
+    outputObj?: boolean;
   }
 ): Promise<string> {
   const params = {
@@ -31,5 +34,5 @@ export async function getPhraseAll(
     database,
   };
 
-  return this.get<string>("", params);
+  return this.get<string>(this.BASE_URL, params, outputObj);
 }
