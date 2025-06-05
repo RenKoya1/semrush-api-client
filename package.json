@@ -1,6 +1,6 @@
 {
   "name": "semrush-api-client",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "license": "Apache-2.0",
   "main": "dist/index.js",
@@ -30,5 +30,8 @@
   ],
   "devDependencies": {
     "@types/node": "^22.15.29"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
