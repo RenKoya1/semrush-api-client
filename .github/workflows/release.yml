@@ -7,7 +7,7 @@ on:
       - main
 
 permissions:
-  contents: write # タグやリリース作成に必要
+  contents: write
 
 jobs:
   release:
@@ -38,6 +38,6 @@ jobs:
           git push origin $TAG
 
           echo "Creating GitHub Release for $TAG"
-          gh release create $TAG --title "$TAG" --notes "Automated release for version $TAG"
+          gh release create $TAG --title "$TAG" --notes "Automated release for version $TAG" --draft=false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
