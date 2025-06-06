@@ -2,7 +2,7 @@ import { SemrushAPIClient } from "../client";
 import { Database } from "../type/general/database";
 import { ExportColumns } from "../type/general/exportColumns";
 
-export async function getDomainRank(
+export async function getDomainOverview(
   this: SemrushAPIClient,
   {
     domain,

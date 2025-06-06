@@ -1,7 +1,7 @@
 import { client } from "..";
 
 client
-  .getDomainRank({
+  .getDomainOverview({
     domain: "apple.com",
     display_limit: 10, // Optional, default is 1000
   })

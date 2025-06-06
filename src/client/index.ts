@@ -1,8 +1,9 @@
 import axios, { type AxiosInstance } from "axios";
-import { getDomainRank } from "../domain/getDomainRank";
+import { getDomainOverview } from "../overview/getDomainOverview";
 import { getPhraseAll } from "../keyword/getPhrase";
 import { backlinksOverview } from "../backlinks/backlinksOverview";
 import { getRankDifference } from "../overview/getRankDifference";
+import { getDomainOrganic } from "../domain/getDomainOrganic";
 
 import { getSemrushRank } from "../overview/getSemrushRank";
 export class SemrushAPIClient {
@@ -14,7 +15,7 @@ export class SemrushAPIClient {
   constructor({ api_key }: { api_key: string }) {
     this.api_key = api_key;
     this.client = axios.create({
-      timeout: 5000,
+      timeout: 10000,
     });
   }
 
@@ -61,9 +62,10 @@ export class SemrushAPIClient {
     }
   }
 
-  public getDomainRank = getDomainRank;
+  public getDomainOverview = getDomainOverview;
   public getPhrase = getPhraseAll;
   public backlinksOverview = backlinksOverview;
   public getRankDifference = getRankDifference;
   public getSemrushRank = getSemrushRank;
+  public getDomainOrganic = getDomainOrganic;
 }
