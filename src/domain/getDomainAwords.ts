@@ -6,6 +6,7 @@ type ExportColumns =
   | "Po" // Position
   | "Pp" // Paid position
   | "Pd" // Paid difficulty
+  | "Ab" // Ad position
   | "Nq" // Number of queries
   | "Cp" // Cost per click
   | "Ur" // URL
@@ -15,18 +16,16 @@ type ExportColumns =
   | "Co" // Competition
   | "Nr" // Number of results
   | "Td" // Total difficulty
-  | "Kd" // Keyword difficulty
-  | "Fp" // Featured position
-  | "Fk" // Featured keyword
+  | "Tt" // Total traffic
+  | "Ds" // Display position
+  | "Vu" // Volume
+  | "Ur" // URL
   | "Ts" // Total search
-  | "In" // Intent
-  | "Pt"; // Paid traffic
+  | "Un"; // Unique visitors
 
 type displayPostions = "new" | "lost" | "rise" | "fall";
 
-type displayPositionType = "organic" | "all" | "serp_features";
-
-export async function getDomainOrganic(
+export async function getDomainAwords(
   this: SemrushAPIClient,
 
   {
@@ -38,7 +37,7 @@ export async function getDomainOrganic(
       "Pd",
       "Nq",
       "Cp",
-      "Ur",
+      "Vu",
       "Tr",
       "Tc",
       "Co",
@@ -47,7 +46,6 @@ export async function getDomainOrganic(
     ],
     database = "us",
     displayPosition,
-    displayPositionsType,
     display_limit = 1000,
     outputObj = true,
   }: {
@@ -56,17 +54,15 @@ export async function getDomainOrganic(
     displayPosition?: displayPostions;
     database?: Database;
     outputObj?: boolean;
-    displayPositionsType?: displayPositionType;
     display_limit?: number;
   }
 ): Promise<string> {
   const params = {
-    type: "domain_organic",
+    type: "domain_adwords",
     export_columns: export_columns.join(","),
     domain,
     database,
     display_position: displayPosition,
-    display_positions_type: displayPositionsType,
     display_limit,
   };
 
