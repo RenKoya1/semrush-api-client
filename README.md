@@ -1,5 +1,6 @@
 # semrush-api-client
 [![Version badge](https://img.shields.io/github/v/release/RenKoya1/semrush-api-client?include_prereleases)](https://github.com//RenKoya1/semrush-api-client)
+[![npm version](https://img.shields.io/npm/v/semrush-api-client)](https://www.npmjs.com/package/semrush-api-client)
 
 A Node.js/TypeScript client for accessing the SEMrush API easily.
 
