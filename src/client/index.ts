@@ -4,6 +4,7 @@ import { getPhraseAll } from "../keyword/getPhrase";
 import { backlinksOverview } from "../backlinks/backlinksOverview";
 import { getRankDifference } from "../overview/getRankDifference";
 
+import { getSemrushRank } from "../overview/getSemrushRank";
 export class SemrushAPIClient {
   private client: AxiosInstance;
   private api_key: string;
@@ -64,4 +65,5 @@ export class SemrushAPIClient {
   public getPhrase = getPhraseAll;
   public backlinksOverview = backlinksOverview;
   public getRankDifference = getRankDifference;
+  public getSemrushRank = getSemrushRank;
 }
