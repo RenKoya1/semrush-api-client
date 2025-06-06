@@ -22,7 +22,7 @@ type ExportColumns =
   | "In" // Intent
   | "Pt"; // Paid traffic
 
-type displayPostions = "new" | "lost" | "rise" | "fall";
+type displayPositions = "new" | "lost" | "rise" | "fall";
 
 type displayPositionType = "organic" | "all" | "serp_features";
 
@@ -53,7 +53,7 @@ export async function getDomainOrganic(
   }: {
     domain: string;
     export_columns?: ExportColumns[];
-    displayPosition?: displayPostions;
+    displayPosition?: displayPositions;
     database?: Database;
     outputObj?: boolean;
     displayPositionsType?: displayPositionType;

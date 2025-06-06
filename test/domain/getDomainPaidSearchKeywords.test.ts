@@ -1,7 +1,7 @@
 import { client } from "..";
 
 client
-  .getDomainAwords({
+  .getDomainPaidSearchKeywords({
     domain: "apple.com",
     display_limit: 5, // Optional, default is 1000
   })

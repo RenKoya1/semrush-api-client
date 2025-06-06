@@ -23,9 +23,9 @@ type ExportColumns =
   | "Ts" // Total search
   | "Un"; // Unique visitors
 
-type displayPostions = "new" | "lost" | "rise" | "fall";
+type displayPositions = "new" | "lost" | "rise" | "fall";
 
-export async function getDomainAwords(
+export async function getDomainPaidSearchKeywords(
   this: SemrushAPIClient,
 
   {
@@ -51,7 +51,7 @@ export async function getDomainAwords(
   }: {
     domain: string;
     export_columns?: ExportColumns[];
-    displayPosition?: displayPostions;
+    displayPosition?: displayPositions;
     database?: Database;
     outputObj?: boolean;
     display_limit?: number;

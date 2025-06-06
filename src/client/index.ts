@@ -4,7 +4,8 @@ import { getPhraseAll } from "../keyword/getPhrase";
 import { backlinksOverview } from "../backlinks/backlinksOverview";
 import { getRankDifference } from "../overview/getRankDifference";
 import { getDomainOrganic } from "../domain/getDomainOrganic";
-import { getDomainAwords } from "../domain/getDomainAwords";
+import { getDomainPaidSearchKeywords } from "../domain/getDomainPaidSearchKeywords";
+import { getAdsCopies } from "../domain/getAdsCopies";
 
 import { getSemrushRank } from "../overview/getSemrushRank";
 export class SemrushAPIClient {
@@ -69,5 +70,6 @@ export class SemrushAPIClient {
   public getRankDifference = getRankDifference;
   public getSemrushRank = getSemrushRank;
   public getDomainOrganic = getDomainOrganic;
-  public getDomainAwords = getDomainAwords;
+  public getDomainPaidSearchKeywords = getDomainPaidSearchKeywords;
+  public getAdsCopies = getAdsCopies;
 }

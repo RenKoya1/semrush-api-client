@@ -3,7 +3,7 @@ import { client } from "..";
 client
   .getDomainOverview({
     domain: "apple.com",
-    display_limit: 10, // Optional, default is 1000
+    display_limit: 5, // Optional, default is 1000
   })
   .then((data) => {
     console.log(data);
