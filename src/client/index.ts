@@ -6,14 +6,14 @@ import { getRankDifference } from "../overview/getRankDifference";
 import { getDomainOrganic } from "../domain/getDomainOrganic";
 import { getDomainPaidSearchKeywords } from "../domain/getDomainPaidSearchKeywords";
 import { getAdsCopies } from "../domain/getAdsCopies";
-
+import { getTrafficSummary } from "../trend/getTrafficSummary";
 import { getSemrushRank } from "../overview/getSemrushRank";
 export class SemrushAPIClient {
   private client: AxiosInstance;
   private api_key: string;
 
   public BASE_URL = "https://api.semrush.com/";
-  public ANALYTICS_URL = "https://api.semrush.com/analytics/v1/";
+  public ANALYTICS_URL = "https://api.semrush.com/analytics/";
   constructor({ api_key }: { api_key: string }) {
     this.api_key = api_key;
     this.client = axios.create({
@@ -72,4 +72,5 @@ export class SemrushAPIClient {
   public getDomainOrganic = getDomainOrganic;
   public getDomainPaidSearchKeywords = getDomainPaidSearchKeywords;
   public getAdsCopies = getAdsCopies;
+  public getTrafficSummary = getTrafficSummary;
 }

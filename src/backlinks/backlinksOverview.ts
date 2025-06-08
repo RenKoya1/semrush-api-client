@@ -54,5 +54,5 @@ export async function backlinksOverview(
     export_columns: export_columns.join(","),
   };
 
-  return this.get<string>(this.ANALYTICS_URL, params, outputObj);
+  return this.get<string>(this.ANALYTICS_URL + "v1/", params, outputObj);
 }
