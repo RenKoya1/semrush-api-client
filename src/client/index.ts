@@ -8,6 +8,7 @@ import { getDomainPaidSearchKeywords } from "../domain/getDomainPaidSearchKeywor
 import { getAdsCopies } from "../domain/getAdsCopies";
 import { getTrafficSummary } from "../trend/getTrafficSummary";
 import { getSemrushRank } from "../overview/getSemrushRank";
+import { getKeywordDifficulty } from "../keyword/getKeywordDifficulty";
 export class SemrushAPIClient {
   private client: AxiosInstance;
   private api_key: string;
@@ -73,4 +74,5 @@ export class SemrushAPIClient {
   public getDomainPaidSearchKeywords = getDomainPaidSearchKeywords;
   public getAdsCopies = getAdsCopies;
   public getTrafficSummary = getTrafficSummary;
+  public getKeywordDifficulty = getKeywordDifficulty;
 }
