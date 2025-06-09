@@ -12,7 +12,7 @@ type KeywordExportColumns =
   | "In" // Intent
   | "Kd"; // Keyword difficulty
 
-export async function getPhraseAll(
+export async function getKeywordOverview(
   this: SemrushAPIClient,
 
   {

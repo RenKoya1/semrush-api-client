@@ -1,6 +1,6 @@
 import axios, { type AxiosInstance } from "axios";
 import { getDomainOverview } from "../overview/getDomainOverview";
-import { getPhraseAll } from "../keyword/getPhrase";
+import { getKeywordOverview } from "../keyword/getKeywordOverview";
 import { backlinksOverview } from "../backlinks/backlinksOverview";
 import { getRankDifference } from "../overview/getRankDifference";
 import { getDomainOrganic } from "../domain/getDomainOrganic";
@@ -66,7 +66,7 @@ export class SemrushAPIClient {
   }
 
   public getDomainOverview = getDomainOverview;
-  public getPhrase = getPhraseAll;
+  public getKeywordOverview = getKeywordOverview;
   public backlinksOverview = backlinksOverview;
   public getRankDifference = getRankDifference;
   public getSemrushRank = getSemrushRank;

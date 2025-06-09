@@ -1,7 +1,7 @@
 import { client } from "..";
 
 client
-  .getPhrase({
+  .getKeywordOverview({
     phrase: "apple",
   })
   .then((data) => {
