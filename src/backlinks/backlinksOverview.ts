@@ -46,7 +46,7 @@ export async function backlinksOverview(
     export_columns?: BacklinkstExportColumns[];
     outputObj?: boolean;
   }
-): Promise<string> {
+): Promise<string | Record<string, string>[]> {
   const params = {
     type: "backlinks_overview",
     target,
@@ -54,5 +54,9 @@ export async function backlinksOverview(
     export_columns: export_columns.join(","),
   };
 
-  return this.get<string>(this.ANALYTICS_URL + "v1/", params, outputObj);
+  return this.get<string | Record<string, string>[]>(
+    this.ANALYTICS_URL + "v1/",
+    params,
+    outputObj
+  );
 }

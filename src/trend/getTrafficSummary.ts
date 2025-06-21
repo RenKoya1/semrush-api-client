@@ -53,14 +53,14 @@ export function getTrafficSummary(
     country?: Country;
     outputObj?: boolean;
   }
-): Promise<string> {
+): Promise<string | Record<string, string>[]> {
   const params = {
     targets: domains.join(","),
     export_columns: export_columns.join(","),
     country: country,
   };
 
-  return this.get<string>(
+  return this.get<string | Record<string, string>[]>(
     this.ANALYTICS_URL + "ta/api/v3/summary",
     params,
     outputObj
