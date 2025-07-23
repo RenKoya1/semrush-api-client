@@ -10,4 +10,12 @@ client
   });
 
 // Domain;Rank;Organic Keywords;Organic Traffic;Organic Cost
-// apple.com;15;40047993;182250868;187984497
+// [
+//   {
+//     domain: "apple.com",
+//     organic_keywords: "40434694",
+//     rank: "16",
+//     organic_traffic: "172477156",
+//     organic_cost: "146454929",
+//   },
+// ];

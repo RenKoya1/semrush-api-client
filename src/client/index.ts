@@ -1,7 +1,7 @@
 import axios, { type AxiosInstance } from "axios";
 import { getDomainOverview } from "../overview/getDomainOverview";
 import { getKeywordOverview } from "../keyword/getKeywordOverview";
-import { backlinksOverview } from "../backlinks/backlinksOverview";
+import { getBacklinksOverview } from "../backlinks/backlinksOverview";
 import { getRankDifference } from "../overview/getRankDifference";
 import { getDomainOrganic } from "../domain/getDomainOrganic";
 import { getDomainPaidSearchKeywords } from "../domain/getDomainPaidSearchKeywords";
@@ -9,6 +9,8 @@ import { getAdsCopies } from "../domain/getAdsCopies";
 import { getTrafficSummary } from "../trend/getTrafficSummary";
 import { getSemrushRank } from "../overview/getSemrushRank";
 import { getKeywordDifficulty } from "../keyword/getKeywordDifficulty";
+import { getBacklinks } from "../backlinks/getBacklinks";
+import { getAnchors } from "../backlinks/getAnchors";
 export class SemrushAPIClient {
   private client: AxiosInstance;
   private api_key: string;
@@ -67,7 +69,7 @@ export class SemrushAPIClient {
 
   public getDomainOverview = getDomainOverview;
   public getKeywordOverview = getKeywordOverview;
-  public backlinksOverview = backlinksOverview;
+  public getBacklinksOverview = getBacklinksOverview;
   public getRankDifference = getRankDifference;
   public getSemrushRank = getSemrushRank;
   public getDomainOrganic = getDomainOrganic;
@@ -75,4 +77,6 @@ export class SemrushAPIClient {
   public getAdsCopies = getAdsCopies;
   public getTrafficSummary = getTrafficSummary;
   public getKeywordDifficulty = getKeywordDifficulty;
+  public getBacklinks = getBacklinks;
+  public getAnchors = getAnchors;
 }

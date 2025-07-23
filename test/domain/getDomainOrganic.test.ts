@@ -3,20 +3,80 @@ import { client } from "..";
 client
   .getDomainOrganic({
     domain: "apple.com",
-    display_limit: 5, // Optional, default is 1000
+    display_limit: 1, // Optional, default is 1000
   })
   .then((data) => {
     console.log(data);
   });
 
 //   Keyword;Position;Previous Position;Position Difference;Search Volume;CPC;Url;Traffic (%);Traffic Cost (%);Competition;Number of Results;Trends
-// seo;9;10;1;110000;14.82;http://www.seobook.com/;17.53;44.40;0.50;0;0.81,1.00,1.00,1.00,1.00,0.81,0.81,0.81,0.81,0.81,0.81,0.81
-// seobook;1;1;0;1300;4.54;http://www.seobook.com/;5.52;4.28;0.32;379000;0.62,0.81,0.62,0.81,0.81,0.62,0.62,0.81,0.81,0.62,1.00,0.81
-// seo tools;6;6;0;8100;10.54;http://tools.seobook.com/;2.15;3.87;0.54;321000000;0.67,0.82,0.82,1.00,0.82,0.82,0.67,0.67,0.67,0.67,0.82,0.82
-// seo basics;2;2;0;1600;6.84;http://www.seobook.com/learn-seo/seo-basics/;1.10;1.29;0.22;42500000;0.81,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.81,1.00,0.81
-// seo book keyword tool;1;1;0;110;16.73;http://tools.seobook.com/keyword-tools/seobook/;0.46;1.33;0.34;5340000;0.41,0.41,0.52,0.52,0.65,0.82,0.65,1.00,1.00,0.82,0.65,0.41
-// seo book keyword density;1;1;0;110;6.64;http://tools.seobook.com/general/keyword-density/;0.46;0.53;0.15;539000;0.14,0.43,0.43,0.33,0.33,0.24,0.52,0.67,0.81,0.81,1.00,1.00
-// free seo tools;6;6;0;1600;7.18;http://tools.seobook.com/;0.42;0.52;0.60;204000000;0.68,0.84,1.00,1.00,1.00,0.84,0.84,1.00,1.00,0.84,1.00,0.84
-// learn seo;8;8;0;1900;7.76;http://www.seobook.com/learn-seo/;0.30;0.40;0.47;396000000;0.67,0.79,0.79,0.79,0.79,0.79,1.00,0.79,0.79,0.67,0.79,0.67
-// aaron seo;1;1;0;70;0.00;http://www.seobook.com/;0.29;0.00;0.03;16300000;0.22,0.56,0.11,0.44,0.11,0.11,0.11,0.33,0.11,1.00,0.78,0.22
-// seo book keyword suggestion tool free download;1;1;0;70;0.00;http://tools.seobook.com/;0.29;0.00;0.14;775000;0.29,1.00,0.00,0.43,0.00,0.00,0.14,0.00,0.14,0.00,0.00,0.43
+//  {
+//     keyword: 'apple',
+//     position: '1',
+//     previous_position: '1',
+//     position_difference: '0',
+//     search_volume: '5000000',
+//     cpc: '0.19',
+//     url: 'https://www.apple.com/',
+//     'traffic_(%)': '2.31',
+//     'traffic_cost_(%)': '0.51',
+//     competition: '0.66',
+//     number_of_results: '4540000000',
+//     trends: '0.36,0.54,0.44,0.66,0.54,0.66,0.44,0.44,0.54,0.66,0.29,0.24'
+//   },
+//   {
+//     keyword: 'facebook',
+//     position: '2',
+//     previous_position: '2',
+//     position_difference: '0',
+//     search_volume: '124000000',
+//     cpc: '0.02',
+//     url: 'https://apps.apple.com/us/app/facebook/id284882215',
+//     'traffic_(%)': '1.86',
+//     'traffic_cost_(%)': '0.04',
+//     competition: '0.00',
+//     number_of_results: '77',
+//     trends: '0.54,0.81,0.67,0.81,0.54,0.54,0.67,0.67,0.54,0.54,0.44,0.54'
+//   },
+//   {
+//     keyword: 'gmail',
+//     position: '5',
+//     previous_position: '5',
+//     position_difference: '0',
+//     search_volume: '55600000',
+//     cpc: '1.24',
+//     url: 'https://apps.apple.com/us/app/gmail-email-by-google/id422689480',
+//     'traffic_(%)': '1.41',
+//     'traffic_cost_(%)': '2.07',
+//     competition: '0.00',
+//     number_of_results: '87',
+//     trends: '0.54,0.81,0.66,0.81,0.54,0.36,0.81,1.00,0.54,0.66,0.66,0.36'
+//   },
+//   {
+//     keyword: 'chatgpt',
+//     position: '4',
+//     previous_position: '4',
+//     position_difference: '0',
+//     search_volume: '30400000',
+//     cpc: '0.12',
+//     url: 'https://apps.apple.com/us/app/chatgpt/id6448311069',
+//     'traffic_(%)': '1.14',
+//     'traffic_cost_(%)': '0.16',
+//     competition: '0.23',
+//     number_of_results: '363000000',
+//     trends: '0.29,0.29,0.29,0.36,0.44,0.44,0.44,0.44,0.54,0.66,0.81,1.00'
+//   },
+//   {
+//     keyword: 'iphone 16',
+//     position: '1',
+//     previous_position: '1',
+//     position_difference: '0',
+//     search_volume: '1830000',
+//     cpc: '2.07',
+//     url: 'https://www.apple.com/iphone-16/',
+//     'traffic_(%)': '0.84',
+//     'traffic_cost_(%)': '2.06',
+//     competition: '1.00',
+//     number_of_results: '0',
+//     trends: '0.19,0.24,0.44,1.00,0.29,0.29,0.29,0.19,0.16,0.19,0.19,0.16'
+//   }

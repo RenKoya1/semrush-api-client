@@ -1,7 +1,7 @@
 import { client } from "..";
 
 client
-  .backlinksOverview({
+  .getBacklinksOverview({
     target: "apple.com",
     target_type: "domain", // Optional, default is "domain"
   })
@@ -9,5 +9,21 @@ client
     console.log(data);
   });
 
-//   ascore;total;domains_num;urls_num;ips_num;ipclassc_num;follows_num;nofollows_num;sponsored_num;ugc_num;texts_num;images_num;forms_num;frames_num
-// 100;42180508;93399;41856201;65337;26013;2689851;39663181;236;6589;41775237;509186;5;3120
+// [
+//   {
+//     ascore: "100",
+//     total: "41098355",
+//     domains_num: "94283",
+//     urls_num: "40584277",
+//     ips_num: "64969",
+//     ipclassc_num: "25977",
+//     follows_num: "3017532",
+//     nofollows_num: "38184145",
+//     sponsored_num: "238",
+//     ugc_num: "7247",
+//     texts_num: "40498357",
+//     images_num: "514069",
+//     forms_num: "5",
+//     frames_num: "3133",
+//   },
+// ];

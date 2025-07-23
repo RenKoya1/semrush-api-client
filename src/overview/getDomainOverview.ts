@@ -6,10 +6,32 @@ export async function getDomainOverview(
   this: SemrushAPIClient,
   {
     domain,
-    export_columns = ["Dn", "Or", "Rk", "Ot", "Oc"],
+    export_columns = [
+      "Db",
+      "Dt",
+      "Dn",
+      "Rk",
+      "Or",
+      "Ot",
+      "Oc",
+      "Ad",
+      "At",
+      "Ac",
+      "Sh",
+      "Sv",
+      "FKn",
+      "FPn",
+      "Sr",
+      "Srb",
+      "St",
+      "Stb",
+      "Sc",
+      "Srn",
+      "Srl",
+    ],
     database = "us",
     display_limit = 1000,
-    outputObj = true, // Default to true for output object
+    outputObj = true,
   }: {
     domain: string;
     export_columns?: ExportColumns[];

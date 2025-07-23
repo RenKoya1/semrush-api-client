@@ -17,8 +17,7 @@ export type BacklinkstExportColumns =
   | "images_num"
   | "forms_num"
   | "frames_num";
-
-export async function backlinksOverview(
+export async function getBacklinksOverview(
   this: SemrushAPIClient,
   {
     target,
