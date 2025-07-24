@@ -41,7 +41,7 @@ export async function getDomainOverview(
     outputObj?: boolean;
     displayDate?: string; // Optional, default is the current date
   }
-): Promise<string | Record<string, string>[]> {
+): Promise<Record<string, string>[]> {
   const params = {
     type: "domain_ranks",
     export_columns: export_columns.join(","),
@@ -51,9 +51,5 @@ export async function getDomainOverview(
     display_limit,
   };
 
-  return this.get<string | Record<string, string>[]>(
-    this.BASE_URL,
-    params,
-    outputObj
-  );
+  return this.get<Record<string, string>[]>(this.BASE_URL, params, outputObj);
 }

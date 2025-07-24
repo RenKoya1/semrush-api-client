@@ -45,7 +45,7 @@ export async function getIndexedPages(
     outputObj?: boolean;
     display_limit?: number;
   }
-): Promise<string | Record<string, string>[]> {
+): Promise<Record<string, string>[]> {
   const params = {
     type: "backlinks_pages",
     target,
@@ -55,7 +55,7 @@ export async function getIndexedPages(
     export_columns: export_columns.join(","),
   };
 
-  return this.get<string | Record<string, string>[]>(
+  return this.get<Record<string, string>[]>(
     this.ANALYTICS_URL + "v1/",
     params,
     outputObj

@@ -27,7 +27,7 @@ export async function getSemrushRank(
     display_limit?: number;
     outputObj?: boolean;
   }
-): Promise<string | Record<string, string>[]> {
+): Promise<Record<string, string>[]> {
   const params = {
     type: "rank",
     export_columns: export_columns.join(","),
@@ -35,9 +35,5 @@ export async function getSemrushRank(
     display_limit,
   };
 
-  return this.get<string | Record<string, string>[]>(
-    this.BASE_URL,
-    params,
-    outputObj
-  );
+  return this.get<Record<string, string>[]>(this.BASE_URL, params, outputObj);
 }

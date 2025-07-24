@@ -40,7 +40,7 @@ export async function getPhraseQuestions(
     outputObj?: boolean;
     display_limit?: number;
   }
-): Promise<string | Record<string, string>[]> {
+): Promise<Record<string, string>[]> {
   const params = {
     type: "phrase_questions",
     phrase,
@@ -50,7 +50,7 @@ export async function getPhraseQuestions(
     export_columns: export_columns.join(","),
   };
 
-  return this.get<string | Record<string, string>[]>(
+  return this.get<Record<string, string>[]>(
     this.ANALYTICS_URL,
     params,
     outputObj

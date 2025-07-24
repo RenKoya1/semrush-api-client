@@ -26,7 +26,7 @@ export async function getKeywordOverview(
     database?: Database;
     outputObj?: boolean;
   }
-): Promise<string | Record<string, string>[]> {
+): Promise<Record<string, string>[]> {
   const params = {
     type: "phrase_all",
     export_columns: export_columns.join(","),
@@ -34,9 +34,5 @@ export async function getKeywordOverview(
     database,
   };
 
-  return this.get<string | Record<string, string>[]>(
-    this.BASE_URL,
-    params,
-    outputObj
-  );
+  return this.get<Record<string, string>[]>(this.BASE_URL, params, outputObj);
 }

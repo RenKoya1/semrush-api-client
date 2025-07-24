@@ -56,7 +56,7 @@ export async function getDomainPaidSearchKeywords(
     outputObj?: boolean;
     display_limit?: number;
   }
-): Promise<string | Record<string, string>[]> {
+): Promise<Record<string, string>[]> {
   const params = {
     type: "domain_adwords",
     export_columns: export_columns.join(","),
@@ -66,9 +66,5 @@ export async function getDomainPaidSearchKeywords(
     display_limit,
   };
 
-  return this.get<string | Record<string, string>[]>(
-    this.BASE_URL,
-    params,
-    outputObj
-  );
+  return this.get<Record<string, string>[]>(this.BASE_URL, params, outputObj);
 }

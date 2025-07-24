@@ -54,7 +54,7 @@ export async function getRelatedKeywords(
     outputObj?: boolean;
     display_limit?: number;
   }
-): Promise<string | Record<string, string>[]> {
+): Promise<Record<string, string>[]> {
   const params = {
     type: "phrase_related",
     phrase,
@@ -64,7 +64,7 @@ export async function getRelatedKeywords(
     export_columns: export_columns.join(","),
   };
 
-  return this.get<string | Record<string, string>[]>(
+  return this.get<Record<string, string>[]>(
     this.ANALYTICS_URL,
     params,
     outputObj

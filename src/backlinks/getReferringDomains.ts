@@ -49,7 +49,7 @@ export async function getReferringDomains(
     outputObj?: boolean;
     display_limit?: number;
   }
-): Promise<string | Record<string, string>[]> {
+): Promise<Record<string, string>[]> {
   const params = {
     type: "backlinks_refdomains",
     target,
@@ -59,7 +59,7 @@ export async function getReferringDomains(
     export_columns: export_columns.join(","),
   };
 
-  return this.get<string | Record<string, string>[]>(
+  return this.get<Record<string, string>[]>(
     this.ANALYTICS_URL + "v1/",
     params,
     outputObj
