@@ -44,7 +44,7 @@ export async function getDomainPaidSearchKeywords(
       "Nr",
       "Td",
     ],
-    database = "us",
+    database,
     displayPosition,
     display_limit = 1000,
     outputObj = true,

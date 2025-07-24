@@ -45,7 +45,7 @@ export async function getDomainOrganic(
       "Nr",
       "Td",
     ],
-    database = "us",
+    database,
     displayPosition,
     displayPositionsType,
     display_limit = 1000,

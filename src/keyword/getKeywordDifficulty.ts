@@ -8,7 +8,7 @@ export async function getKeywordDifficulty(
   {
     phrases,
     export_columns = ["Ph", "Kd"],
-    database = "us",
+    database,
     outputObj = true, // Default to true for output object
   }: {
     phrases: string[];

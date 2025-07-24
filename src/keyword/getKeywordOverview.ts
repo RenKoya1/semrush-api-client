@@ -18,7 +18,7 @@ export async function getKeywordOverview(
   {
     phrase,
     export_columns = ["Dt", "Db", "Ph", "Nq", "Cp", "Co", "Nr"],
-    database = "us",
+    database,
     outputObj = true, // Default to true for output object
   }: {
     phrase: string;

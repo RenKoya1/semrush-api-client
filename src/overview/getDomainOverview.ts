@@ -29,7 +29,7 @@ export async function getDomainOverview(
       "Srn",
       "Srl",
     ],
-    database = "us",
+    database,
     display_limit = 1000,
     outputObj = true,
   }: {

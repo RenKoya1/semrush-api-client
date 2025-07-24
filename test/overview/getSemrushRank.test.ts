@@ -2,7 +2,7 @@ import { client } from "..";
 
 client
   .getSemrushRank({
-    display_limit: 5,
+    display_limit: 4,
   })
   .then((data) => {
     console.log(data);

@@ -4,7 +4,7 @@ client
   .getAnchors({
     target: "apple.com",
     target_type: "domain", // Optional, default is "domain"
-    display_limit: 5, // Optional, default is 1000
+    display_limit: 4, // Optional, default is 1000
   })
   .then((data) => {
     console.log(data);
