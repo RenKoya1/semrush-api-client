@@ -1,7 +1,7 @@
 import { client } from "..";
 
 client
-  .getDomainOrganic({
+  .getDomainOrganicSearchKeywords({
     domain: "apple.com",
     display_limit: 1, // Optional, default is 1000
   })

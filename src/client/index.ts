@@ -1,9 +1,9 @@
 import axios, { type AxiosInstance } from "axios";
-import { getDomainOverview } from "../overview/getDomainOverview";
+import { getDomainOverview } from "../domain/getDomainOverview";
 import { getKeywordOverview } from "../keyword/getKeywordOverview";
 import { getBacklinksOverview } from "../backlinks/backlinksOverview";
 import { getRankDifference } from "../overview/getRankDifference";
-import { getDomainOrganic } from "../domain/getDomainOrganic";
+import { getDomainOrganicSearchKeywords } from "../domain/getDomainOrganicSearchKeywords";
 import { getDomainPaidSearchKeywords } from "../domain/getDomainPaidSearchKeywords";
 import { getAdsCopies } from "../domain/getAdsCopies";
 import { getTrafficSummary } from "../trend/getTrafficSummary";
@@ -76,7 +76,7 @@ export class SemrushAPIClient {
   public getBacklinksOverview = getBacklinksOverview;
   public getRankDifference = getRankDifference;
   public getSemrushRank = getSemrushRank;
-  public getDomainOrganic = getDomainOrganic;
+  public getDomainOrganicSearchKeywords = getDomainOrganicSearchKeywords;
   public getDomainPaidSearchKeywords = getDomainPaidSearchKeywords;
   public getAdsCopies = getAdsCopies;
   public getTrafficSummary = getTrafficSummary;

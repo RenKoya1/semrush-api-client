@@ -1,4 +1,5 @@
 # semrush-api-client
+
 [![Version badge](https://img.shields.io/github/v/release/RenKoya1/semrush-api-client?include_prereleases)](https://github.com//RenKoya1/semrush-api-client)
 [![npm version](https://img.shields.io/npm/v/semrush-api-client)](https://www.npmjs.com/package/semrush-api-client)
 
@@ -27,10 +28,10 @@ const client = new SemrushAPIClient({
 });
 
 // Get domain rank
-client.getDomainRank({ domain: "apple.com" });
+client.getDomainOverview({ domain: "apple.com" });
 
 // Get keyword data
-client.getPhrase({ phrase: "apple" });
+client.getKeywordOverview({ phrase: "apple" });
 ```
 
 ## Contributing

@@ -26,7 +26,7 @@ type displayPositions = "new" | "lost" | "rise" | "fall";
 
 type displayPositionType = "organic" | "all" | "serp_features";
 
-export async function getDomainOrganic(
+export async function getDomainOrganicSearchKeywords(
   this: SemrushAPIClient,
 
   {
