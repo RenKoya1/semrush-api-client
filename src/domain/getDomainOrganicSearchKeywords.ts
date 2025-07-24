@@ -45,7 +45,7 @@ export async function getDomainOrganicSearchKeywords(
       "Nr",
       "Td",
     ],
-    database,
+    database = "us",
     displayPosition,
     displayPositionsType,
     display_limit = 1000,

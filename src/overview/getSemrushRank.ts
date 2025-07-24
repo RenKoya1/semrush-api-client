@@ -18,7 +18,7 @@ export async function getSemrushRank(
 
   {
     export_columns = ["Dn", "Rk", "Or", "Ot", "Oc", "Ad", "At", "Ac"],
-    database,
+    database = "us",
     display_limit = 1000,
     outputObj = true,
   }: {

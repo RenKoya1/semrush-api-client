@@ -29,7 +29,8 @@ export async function getDomainOverview(
       "Srn",
       "Srl",
     ],
-    database,
+    database = "us",
+    displayDate,
     display_limit = 1000,
     outputObj = true,
   }: {
@@ -38,6 +39,7 @@ export async function getDomainOverview(
     database?: Database;
     display_limit?: number;
     outputObj?: boolean;
+    displayDate?: string; // Optional, default is the current date
   }
 ): Promise<string | Record<string, string>[]> {
   const params = {
@@ -45,6 +47,7 @@ export async function getDomainOverview(
     export_columns: export_columns.join(","),
     domain,
     database,
+    displayDate: displayDate,
     display_limit,
   };
 

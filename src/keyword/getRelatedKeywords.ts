@@ -44,7 +44,7 @@ export async function getRelatedKeywords(
       "In",
       "Kd",
     ],
-    database,
+    database = "us",
     displaySort = "nq_desc",
     display_limit = 1000,
     outputObj = true,

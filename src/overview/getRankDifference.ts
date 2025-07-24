@@ -40,7 +40,7 @@ export async function getRankDifference(
       "Ac",
       "Sh",
     ],
-    database,
+    database = "us",
     display_limit = 1000,
     outputObj = true,
   }: {
