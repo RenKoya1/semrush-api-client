@@ -15,6 +15,7 @@ import { getIndexedPages } from "../backlinks/getIndexedPages";
 import { getReferringDomains } from "../backlinks/getReferringDomains";
 import { getRelatedKeywords } from "../keyword/getRelatedKeywords";
 import { getPhraseQuestions } from "../keyword/getPhraseQuestions";
+import { getBroadMatchKeywords } from "../keyword/getBroadMatchKeywords";
 export class SemrushAPIClient {
   private client: AxiosInstance;
   private api_key: string;
@@ -87,4 +88,5 @@ export class SemrushAPIClient {
   public getReferringDomains = getReferringDomains;
   public getRelatedKeywords = getRelatedKeywords;
   public getPhraseQuestions = getPhraseQuestions;
+  public getBroadMatchKeywords = getBroadMatchKeywords;
 }

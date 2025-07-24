@@ -8,6 +8,7 @@ export type ExportColumns =
   | "Co"
   | "Nr"
   | "Td"
+  | "Fk"
   | "In"
   | "Kd";
 
@@ -23,7 +24,7 @@ export type DisplaySort =
   | "kd_asc"
   | "kd_desc";
 
-export async function getPhraseQuestions(
+export async function getBroadMatchKeywords(
   this: SemrushAPIClient,
   {
     phrase,
@@ -42,7 +43,7 @@ export async function getPhraseQuestions(
   }
 ): Promise<string | Record<string, string>[]> {
   const params = {
-    type: "phrase_questions",
+    type: "phrase_fullsearch",
     phrase,
     database,
     display_sort: displaySort,

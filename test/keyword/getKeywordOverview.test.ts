@@ -8,7 +8,6 @@ client
     console.log(data);
   });
 
-// (3.11.8)  renkoya@Rens-Mac-Studio  ~/Desktop/agos/semrush-api   main ±  npx ts-node test/keyword/getKeywordOverview.test.ts
 // [
 //   {
 //     date: '202507',
