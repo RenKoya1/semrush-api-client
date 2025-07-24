@@ -1,8 +1,6 @@
 import { SemrushAPIClient } from "../client";
 import { Database } from "../type/general/database";
 
-export type IndexedPagephraseType = "root_domain" | "domain" | "url";
-
 export type ExportColumns =
   | "Ph"
   | "Nq"
