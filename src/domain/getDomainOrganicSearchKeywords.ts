@@ -48,7 +48,7 @@ export async function getDomainOrganicSearchKeywords(
     database = "us",
     displayPosition,
     displayPositionsType,
-    display_limit = 1000,
+    display_limit = 10,
     outputObj = true,
   }: {
     domain: string;

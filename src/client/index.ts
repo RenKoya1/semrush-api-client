@@ -65,7 +65,13 @@ export class SemrushAPIClient {
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        throw new Error(`API request failed: ${error.message}`);
+        throw new Error(
+          `API request failed: ${error.message}${
+            error.code ? ` (code: ${error.code})` : ""
+          }${
+            error.response?.status ? ` (status: ${error.response.status})` : ""
+          }`
+        );
       } else {
         throw new Error(`Unexpected error: ${error}`);
       }

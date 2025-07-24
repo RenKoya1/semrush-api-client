@@ -44,7 +44,7 @@ export async function getRelatedKeywords(
     ],
     database = "us",
     displaySort = "nq_desc",
-    display_limit = 1000,
+    display_limit = 10,
     outputObj = true,
   }: {
     phrase: string;

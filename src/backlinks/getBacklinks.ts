@@ -63,7 +63,7 @@ export async function getBacklinks(
       "lostlink",
     ],
     displaySort = "page_ascore_desc",
-    display_limit = 1000,
+    display_limit = 10,
     outputObj = true,
   }: {
     target: string;

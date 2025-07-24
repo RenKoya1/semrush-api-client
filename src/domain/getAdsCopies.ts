@@ -10,7 +10,7 @@ export async function getAdsCopies(
     domain,
     export_columns = ["Tt", "Ds", "Vu", "Ur", "Pc", "Un"],
     database = "us",
-    display_limit = 1000,
+    display_limit = 10,
     outputObj = true,
   }: {
     domain: string;

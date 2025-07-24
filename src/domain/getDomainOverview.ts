@@ -31,7 +31,7 @@ export async function getDomainOverview(
     ],
     database = "us",
     displayDate,
-    display_limit = 1000,
+    display_limit = 10,
     outputObj = true,
   }: {
     domain: string;

@@ -33,7 +33,7 @@ export async function getAnchors(
       "last_seen",
     ],
     displaySort = "backlinks_num_desc",
-    display_limit = 1000,
+    display_limit = 10,
     outputObj = true,
   }: {
     target: string;

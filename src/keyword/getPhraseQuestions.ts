@@ -30,7 +30,7 @@ export async function getPhraseQuestions(
     export_columns = ["Ph", "Nq", "Cp", "Co", "Nr", "Td", "In", "Kd"],
     database = "us",
     displaySort = "nq_desc",
-    display_limit = 1000,
+    display_limit = 10,
     outputObj = true,
   }: {
     phrase: string;
