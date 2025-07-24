@@ -1,8 +1,8 @@
 import { client } from "..";
 
 client
-  .getIndexedPages({
-    target: "apple.com",
+  .getReferringDomains({
+    target: "google.com",
     target_type: "domain", // Optional, default is "domain"
     display_limit: 4, // Optional, default is 1000
   })
@@ -10,55 +10,48 @@ client
     console.log(data);
   });
 
-//   [
-//   {
-//     source_url: 'http://apple.com/safari/',
-//     source_title: '',
-//     response_code: '301',
-//     backlinks_num: '39396637',
-//     domains_num: '1071',
-//     last_seen: '1748026493',
-//     external_num: '0',
-//     internal_num: '0'
+// //  {
+//     domain_ascore: '7',
+//     domain_score: '7',
+//     domain: '777shows.com',
+//     backlinks_num: '65625543',
+//     domain_trust_score: '7',
+//     ip: '85.222.227.67',
+//     country: 'nl',
+//     first_seen: '1600226837',
+//     last_seen: '1753056441'
 //   },
 //   {
-//     source_url: 'https://apple.com/',
-//     source_title: '',
-//     response_code: '301',
-//     backlinks_num: '1217463',
-//     domains_num: '20251',
-//     last_seen: '1749460023',
-//     external_num: '0',
-//     internal_num: '0'
+//     domain_ascore: '85',
+//     domain_score: '85',
+//     domain: 'stripchat.com',
+//     backlinks_num: '31757306',
+//     domain_trust_score: '85',
+//     ip: '104.17.117.12',
+//     country: '',
+//     first_seen: '1659696479',
+//     last_seen: '1753056397'
 //   },
 //   {
-//     source_url: 'http://apple.com/',
-//     source_title: '',
-//     response_code: '301',
-//     backlinks_num: '1043273',
-//     domains_num: '52559',
-//     last_seen: '1750932344',
-//     external_num: '0',
-//     internal_num: '0'
+//     domain_ascore: '28',
+//     domain_score: '28',
+//     domain: 'accrediteddrugtesting.com',
+//     backlinks_num: '29850299',
+//     domain_trust_score: '28',
+//     ip: '31.97.135.185',
+//     country: 'us',
+//     first_seen: '1689457554',
+//     last_seen: '1751875924'
 //   },
 //   {
-//     source_url: 'https://apple.com/safari',
-//     source_title: '',
-//     response_code: '301',
-//     backlinks_num: '230657',
-//     domains_num: '153',
-//     last_seen: '1748010711',
-//     external_num: '0',
-//     internal_num: '0'
-//   },
-//   {
-//     source_url: 'https://apple.com/app-store',
-//     source_title: '',
-//     response_code: '301',
-//     backlinks_num: '116320',
-//     domains_num: '121',
-//     last_seen: '1748033917',
-//     external_num: '0',
-//     internal_num: '0'
+//     domain_ascore: '2',
+//     domain_score: '2',
+//     domain: 'agrarij.ru',
+//     backlinks_num: '25055663',
+//     domain_trust_score: '2',
+//     ip: '172.67.223.19',
+//     country: '',
+//     first_seen: '1725124142',
+//     last_seen: '1750297284'
 //   }
 // ]
