@@ -11,6 +11,7 @@ import { getSemrushRank } from "../overview/getSemrushRank";
 import { getKeywordDifficulty } from "../keyword/getKeywordDifficulty";
 import { getBacklinks } from "../backlinks/getBacklinks";
 import { getAnchors } from "../backlinks/getAnchors";
+import { getIndexedPages } from "../backlinks/getIndexedPages";
 export class SemrushAPIClient {
   private client: AxiosInstance;
   private api_key: string;
@@ -79,4 +80,5 @@ export class SemrushAPIClient {
   public getKeywordDifficulty = getKeywordDifficulty;
   public getBacklinks = getBacklinks;
   public getAnchors = getAnchors;
+  public getIndexedPages = getIndexedPages;
 }
