@@ -2,7 +2,7 @@ import { client } from "..";
 
 client
   .getBacklinks({
-    target: "apple.com",
+    target: "agoslabs.xyz",
     target_type: "domain", // Optional, default is "domain"
     display_limit: 4, // Optional, default is 1000
   })
