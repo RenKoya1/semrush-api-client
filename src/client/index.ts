@@ -1,21 +1,31 @@
 import axios, { type AxiosInstance } from "axios";
-import { getDomainOverview } from "../domain/getDomainOverview";
-import { getKeywordOverview } from "../keyword/getKeywordOverview";
-import { getBacklinksOverview } from "../backlinks/backlinksOverview";
-import { getRankDifference } from "../overview/getRankDifference";
-import { getDomainOrganicSearchKeywords } from "../domain/getDomainOrganicSearchKeywords";
-import { getDomainPaidSearchKeywords } from "../domain/getDomainPaidSearchKeywords";
-import { getAdsCopies } from "../domain/getAdsCopies";
-import { getTrafficSummary } from "../trend/getTrafficSummary";
-import { getSemrushRank } from "../overview/getSemrushRank";
-import { getKeywordDifficulty } from "../keyword/getKeywordDifficulty";
-import { getBacklinks } from "../backlinks/getBacklinks";
-import { getAnchors } from "../backlinks/getAnchors";
-import { getIndexedPages } from "../backlinks/getIndexedPages";
-import { getReferringDomains } from "../backlinks/getReferringDomains";
-import { getRelatedKeywords } from "../keyword/getRelatedKeywords";
-import { getPhraseQuestions } from "../keyword/getPhraseQuestions";
-import { getBroadMatchKeywords } from "../keyword/getBroadMatchKeywords";
+import {
+  getDomainOverview,
+  getDomainOrganicSearchKeywords,
+  getDomainPaidSearchKeywords,
+  getAdsCopies,
+} from "../domain";
+import {
+  getKeywordOverview,
+  getKeywordDifficulty,
+  getRelatedKeywords,
+  getPhraseQuestions,
+  getBroadMatchKeywords,
+} from "../keyword";
+import {
+  getBacklinksOverview,
+  getBacklinks,
+  getAnchors,
+  getIndexedPages,
+  getReferringDomains,
+} from "../backlinks";
+import { getRankDifference, getSemrushRank } from "../overview";
+import { getTrafficSummary } from "../trend";
+import {
+  getUrlOverview,
+  getUrlOrganicSearchKeywords,
+  getUrlPaidSearchKeywords,
+} from "../url";
 export class SemrushAPIClient {
   private client: AxiosInstance;
   private api_key: string;
@@ -95,4 +105,8 @@ export class SemrushAPIClient {
   public getRelatedKeywords = getRelatedKeywords;
   public getPhraseQuestions = getPhraseQuestions;
   public getBroadMatchKeywords = getBroadMatchKeywords;
+
+  public getUrlOverview = getUrlOverview;
+  public getUrlOrganicSearchKeywords = getUrlOrganicSearchKeywords;
+  public getUrlPaidSearchKeywords = getUrlPaidSearchKeywords;
 }
