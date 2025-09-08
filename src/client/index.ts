@@ -88,24 +88,34 @@ export class SemrushAPIClient {
     }
   }
 
+  // Domain methods
   public getDomainOverview = getDomainOverview;
-  public getKeywordOverview = getKeywordOverview;
-  public getBacklinksOverview = getBacklinksOverview;
-  public getRankDifference = getRankDifference;
-  public getSemrushRank = getSemrushRank;
   public getDomainOrganicSearchKeywords = getDomainOrganicSearchKeywords;
   public getDomainPaidSearchKeywords = getDomainPaidSearchKeywords;
   public getAdsCopies = getAdsCopies;
-  public getTrafficSummary = getTrafficSummary;
+
+  // Keyword methods
+  public getKeywordOverview = getKeywordOverview;
   public getKeywordDifficulty = getKeywordDifficulty;
-  public getBacklinks = getBacklinks;
-  public getAnchors = getAnchors;
-  public getIndexedPages = getIndexedPages;
-  public getReferringDomains = getReferringDomains;
   public getRelatedKeywords = getRelatedKeywords;
   public getPhraseQuestions = getPhraseQuestions;
   public getBroadMatchKeywords = getBroadMatchKeywords;
 
+  // Backlinks methods
+  public getBacklinksOverview = getBacklinksOverview;
+  public getBacklinks = getBacklinks;
+  public getAnchors = getAnchors;
+  public getIndexedPages = getIndexedPages;
+  public getReferringDomains = getReferringDomains;
+
+  // Overview methods
+  public getRankDifference = getRankDifference;
+  public getSemrushRank = getSemrushRank;
+
+  // Trend methods
+  public getTrafficSummary = getTrafficSummary;
+
+  // URL methods
   public getUrlOverview = getUrlOverview;
   public getUrlOrganicSearchKeywords = getUrlOrganicSearchKeywords;
   public getUrlPaidSearchKeywords = getUrlPaidSearchKeywords;
