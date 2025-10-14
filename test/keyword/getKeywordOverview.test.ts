@@ -11,12 +11,14 @@ client
 
 // [
 //   {
-//     date: '202507',
-//     database: 'ae',
+//     date: '202509',
+//     database: 'us',
 //     keyword: 'apple',
-//     search_volume: '135000',
-//     cpc: '0.38',
-//     competition: '1',
-//     number_of_results: '88'
-//   },
+//     search_volume: '4090000',
+//     cpc: '0.2',
+//     competition: '0.73',
+//     number_of_results: '5490000000',
+//     intent: '2',
+//     keyword_difficulty_index: '100'
+//   }
 // ]
