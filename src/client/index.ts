@@ -11,6 +11,7 @@ import {
   getRelatedKeywords,
   getPhraseQuestions,
   getBroadMatchKeywords,
+  getKeywordOrganic,
 } from "../keyword";
 import {
   getBacklinksOverview,
@@ -100,6 +101,7 @@ export class SemrushAPIClient {
   public getRelatedKeywords = getRelatedKeywords;
   public getPhraseQuestions = getPhraseQuestions;
   public getBroadMatchKeywords = getBroadMatchKeywords;
+  public getKeywordOrganic = getKeywordOrganic;
 
   // Backlinks methods
   public getBacklinksOverview = getBacklinksOverview;
