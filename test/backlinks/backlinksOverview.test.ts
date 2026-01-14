@@ -2,7 +2,7 @@ import { client } from "..";
 
 client
   .getBacklinksOverview({
-    target: "apple.com",
+    target: "noimosai.com",
     target_type: "domain", // Optional, default is "domain"
   })
   .then((data) => {

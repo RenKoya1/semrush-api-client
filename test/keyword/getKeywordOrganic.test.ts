@@ -2,7 +2,7 @@ import { client } from "..";
 
 client
   .getKeywordOrganic({
-    phrase: "apple",
+    phrase: "noimosai",
     database: "us",
   })
   .then((data) => {

@@ -10,29 +10,49 @@ type KeywordExportColumns =
   | "Fp" // Featured snippet
   | "Fl"; // SERP features list
 
+export type KeywordOrganicDisplaySort =
+  | "po_asc"
+  | "po_desc"
+  | "tr_asc"
+  | "tr_desc";
+
 export async function getKeywordOrganic(
   this: SemrushAPIClient,
-
   {
     phrase,
-    export_columns = ["Po", "Pt", "Dn", "Ur", "Fk", "Fp", "Fl"],
+    exportColumns = ["Po", "Pt", "Dn", "Ur", "Fk", "Fp", "Fl"],
     database = "us",
-    outputObj = true, // Default to true for output object
-    display_limit = 10,
+    displayLimit = 10,
+    displayOffset,
+    displaySort,
+    displayFilter,
+    exportEscape,
+    exportDecode,
+    outputObj = true,
   }: {
-    display_limit?: number;
     phrase: string;
-    export_columns?: KeywordExportColumns[];
+    exportColumns?: KeywordExportColumns[];
     database?: Database;
+    displayLimit?: number;
+    displayOffset?: number;
+    displaySort?: KeywordOrganicDisplaySort;
+    displayFilter?: string;
+    exportEscape?: 1;
+    exportDecode?: 0 | 1;
     outputObj?: boolean;
   }
 ): Promise<Record<string, string>[]> {
   const params = {
     type: "phrase_organic",
-    export_columns: export_columns.join(","),
+    export_columns: exportColumns.join(","),
     phrase,
     database,
-    display_limit,
+    display_limit: displayLimit,
+    display_offset: displayOffset,
+    display_sort: displaySort,
+    display_filter: displayFilter,
+    export_escape: exportEscape,
+    export_decode: exportDecode,
   };
 
   return this.get<Record<string, string>[]>(this.BASE_URL, params, outputObj);

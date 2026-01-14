@@ -23,8 +23,8 @@ export async function getIndexedPages(
   this: SemrushAPIClient,
   {
     target,
-    target_type = "domain",
-    export_columns = [
+    targetType = "domain",
+    exportColumns = [
       "source_url",
       "source_title",
       "response_code",
@@ -35,24 +35,30 @@ export async function getIndexedPages(
       "internal_num",
     ],
     displaySort = "backlinks_num_desc",
-    display_limit = 10,
+    displayLimit = 10,
+    displayOffset,
+    exportEscape,
     outputObj = true,
   }: {
     target: string;
-    target_type?: IndexedPageTargetType;
-    export_columns?: ExportColumns[];
+    targetType?: IndexedPageTargetType;
+    exportColumns?: ExportColumns[];
     displaySort?: DisplaySort;
+    displayLimit?: number;
+    displayOffset?: number;
+    exportEscape?: 1;
     outputObj?: boolean;
-    display_limit?: number;
   }
 ): Promise<Record<string, string>[]> {
   const params = {
     type: "backlinks_pages",
     target,
-    target_type,
+    target_type: targetType,
     display_sort: displaySort,
-    display_limit,
-    export_columns: export_columns.join(","),
+    display_limit: displayLimit,
+    display_offset: displayOffset,
+    export_escape: exportEscape,
+    export_columns: exportColumns.join(","),
   };
 
   return this.get<Record<string, string>[]>(

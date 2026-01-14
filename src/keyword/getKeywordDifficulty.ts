@@ -4,24 +4,29 @@ type ExportColumns = "Ph" | "Kd";
 
 export async function getKeywordDifficulty(
   this: SemrushAPIClient,
-
   {
     phrases,
-    export_columns = ["Ph", "Kd"],
+    exportColumns = ["Ph", "Kd"],
     database = "us",
-    outputObj = true, // Default to true for output object
+    exportEscape,
+    exportDecode,
+    outputObj = true,
   }: {
     phrases: string[];
-    export_columns?: ExportColumns[];
+    exportColumns?: ExportColumns[];
     database?: Database;
+    exportEscape?: 1;
+    exportDecode?: 0 | 1;
     outputObj?: boolean;
   }
 ): Promise<Record<string, string>[]> {
   const params = {
     type: "phrase_kdi",
-    export_columns: export_columns.join(","),
+    export_columns: exportColumns.join(","),
     phrase: phrases.join(";"),
     database,
+    export_escape: exportEscape,
+    export_decode: exportDecode,
   };
 
   return this.get<Record<string, string>[]>(this.BASE_URL, params, outputObj);

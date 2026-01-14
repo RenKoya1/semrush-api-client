@@ -28,18 +28,26 @@ export async function getBroadMatchKeywords(
   this: SemrushAPIClient,
   {
     phrase,
-    export_columns = ["Ph", "Nq", "Cp", "Co", "Nr", "Td", "In", "Kd"],
+    exportColumns = ["Ph", "Nq", "Cp", "Co", "Nr", "Td", "In", "Kd"],
     database = "us",
     displaySort = "nq_desc",
-    display_limit = 10,
+    displayLimit = 10,
+    displayOffset,
+    displayFilter,
+    exportEscape,
+    exportDecode,
     outputObj = true,
   }: {
     phrase: string;
     database?: Database;
-    export_columns?: ExportColumns[];
+    exportColumns?: ExportColumns[];
     displaySort?: DisplaySort;
+    displayLimit?: number;
+    displayOffset?: number;
+    displayFilter?: string;
+    exportEscape?: 1;
+    exportDecode?: 0 | 1;
     outputObj?: boolean;
-    display_limit?: number;
   }
 ): Promise<Record<string, string>[]> {
   const params = {
@@ -47,8 +55,12 @@ export async function getBroadMatchKeywords(
     phrase,
     database,
     display_sort: displaySort,
-    display_limit,
-    export_columns: export_columns.join(","),
+    display_limit: displayLimit,
+    display_offset: displayOffset,
+    display_filter: displayFilter,
+    export_escape: exportEscape,
+    export_decode: exportDecode,
+    export_columns: exportColumns.join(","),
   };
 
   return this.get<Record<string, string>[]>(

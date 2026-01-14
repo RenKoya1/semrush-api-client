@@ -21,8 +21,8 @@ export async function getBacklinksOverview(
   this: SemrushAPIClient,
   {
     target,
-    target_type = "domain",
-    export_columns = [
+    targetType = "domain",
+    exportColumns = [
       "ascore",
       "total",
       "domains_num",
@@ -38,19 +38,22 @@ export async function getBacklinksOverview(
       "forms_num",
       "frames_num",
     ],
+    exportEscape,
     outputObj = true,
   }: {
     target: string;
-    target_type?: BacklinksTargetType;
-    export_columns?: BacklinkstExportColumns[];
+    targetType?: BacklinksTargetType;
+    exportColumns?: BacklinkstExportColumns[];
+    exportEscape?: 1;
     outputObj?: boolean;
   }
 ): Promise<Record<string, string>[]> {
   const params = {
     type: "backlinks_overview",
     target,
-    target_type,
-    export_columns: export_columns.join(","),
+    target_type: targetType,
+    export_columns: exportColumns.join(","),
+    export_escape: exportEscape,
   };
 
   return this.get<Record<string, string>[]>(

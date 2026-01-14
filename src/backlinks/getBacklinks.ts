@@ -37,8 +37,8 @@ export async function getBacklinks(
   this: SemrushAPIClient,
   {
     target,
-    target_type = "domain",
-    export_columns = [
+    targetType = "domain",
+    exportColumns = [
       "page_ascore",
       "response_code",
       "source_size",
@@ -63,24 +63,33 @@ export async function getBacklinks(
       "lostlink",
     ],
     displaySort = "page_ascore_desc",
-    display_limit = 10,
+    displayLimit = 10,
+    displayOffset,
+    displayFilter,
+    exportEscape,
     outputObj = true,
   }: {
     target: string;
-    target_type?: BacklinksTargetType;
-    export_columns?: BacklinkstExportColumns[];
+    targetType?: BacklinksTargetType;
+    exportColumns?: BacklinkstExportColumns[];
     displaySort?: DisplaySort;
+    displayLimit?: number;
+    displayOffset?: number;
+    displayFilter?: string;
+    exportEscape?: 1;
     outputObj?: boolean;
-    display_limit?: number;
   }
 ): Promise<Record<string, string>[]> {
   const params = {
     type: "backlinks",
     target,
-    target_type,
+    target_type: targetType,
     display_sort: displaySort,
-    display_limit,
-    export_columns: export_columns.join(","),
+    display_limit: displayLimit,
+    display_offset: displayOffset,
+    display_filter: displayFilter,
+    export_escape: exportEscape,
+    export_columns: exportColumns.join(","),
   };
 
   return this.get<Record<string, string>[]>(

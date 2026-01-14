@@ -2,8 +2,9 @@ import { client } from "..";
 
 client
   .getDomainOverview({
-    domain: "apple.com",
+    domain: "noimosai.com",
     display_limit: 4, // Optional, default is 1000
+    database: "jp",
   })
   .then((data) => {
     console.log(data);

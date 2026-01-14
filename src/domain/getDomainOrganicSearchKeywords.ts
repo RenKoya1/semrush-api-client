@@ -1,5 +1,6 @@
 import { SemrushAPIClient } from "../client";
 import { Database } from "../type/general/database";
+import { displayDateValidator } from "../utils/displayDateValidator";
 
 type ExportColumns =
   | "Ph" // Phrase
@@ -26,12 +27,27 @@ type displayPositions = "new" | "lost" | "rise" | "fall";
 
 type displayPositionType = "organic" | "all" | "serp_features";
 
+export type DomainOrganicDisplaySort =
+  | "po_asc"
+  | "po_desc"
+  | "tr_asc"
+  | "tr_desc"
+  | "tc_asc"
+  | "tc_desc"
+  | "nq_asc"
+  | "nq_desc"
+  | "cp_asc"
+  | "cp_desc"
+  | "co_asc"
+  | "co_desc"
+  | "kd_asc"
+  | "kd_desc";
+
 export async function getDomainOrganicSearchKeywords(
   this: SemrushAPIClient,
-
   {
     domain,
-    export_columns = [
+    exportColumns = [
       "Ph",
       "Po",
       "Pp",
@@ -48,26 +64,47 @@ export async function getDomainOrganicSearchKeywords(
     database = "us",
     displayPosition,
     displayPositionsType,
-    display_limit = 10,
+    displayLimit = 10,
+    displayOffset,
+    displaySort,
+    displayFilter,
+    displayDate,
+    exportEscape,
+    exportDecode,
     outputObj = true,
   }: {
     domain: string;
-    export_columns?: ExportColumns[];
-    displayPosition?: displayPositions;
+    exportColumns?: ExportColumns[];
     database?: Database;
-    outputObj?: boolean;
+    displayPosition?: displayPositions;
     displayPositionsType?: displayPositionType;
-    display_limit?: number;
+    displayLimit?: number;
+    displayOffset?: number;
+    displaySort?: DomainOrganicDisplaySort;
+    displayFilter?: string;
+    displayDate?: string; // Format: YYYYMM15
+    exportEscape?: 1;
+    exportDecode?: 0 | 1;
+    outputObj?: boolean;
   }
 ): Promise<Record<string, string>[]> {
+  if (displayDate && !displayDateValidator(displayDate)) {
+    throw new Error("Invalid displayDate format. Format: YYYYMM15");
+  }
   const params = {
     type: "domain_organic",
-    export_columns: export_columns.join(","),
+    export_columns: exportColumns.join(","),
     domain,
     database,
     display_position: displayPosition,
     display_positions_type: displayPositionsType,
-    display_limit,
+    display_limit: displayLimit,
+    display_offset: displayOffset,
+    display_sort: displaySort,
+    display_filter: displayFilter,
+    display_date: displayDate,
+    export_escape: exportEscape,
+    export_decode: exportDecode,
   };
 
   return this.get<Record<string, string>[]>(this.BASE_URL, params, outputObj);

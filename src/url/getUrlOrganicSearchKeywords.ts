@@ -1,5 +1,6 @@
 import { SemrushAPIClient } from "../client";
 import { Database } from "../type/general/database";
+import { displayDateValidator } from "../utils/displayDateValidator";
 
 export type ExportColumns =
   | "Ph"
@@ -33,10 +34,9 @@ export type DisplaySort =
   | "nq_desc";
 export function getUrlOrganicSearchKeywords(
   this: SemrushAPIClient,
-
   {
     url,
-    export_columns = [
+    exportColumns = [
       "Ph",
       "Po",
       "Pp",
@@ -56,25 +56,43 @@ export function getUrlOrganicSearchKeywords(
       "Pt",
     ],
     database = "us",
+    displayLimit = 10,
+    displayOffset,
+    displaySort,
+    displayFilter,
+    displayDate,
+    exportEscape,
+    exportDecode,
     outputObj = true,
-    display_limit = 10,
-    display_sort,
   }: {
     url: string;
-    export_columns?: ExportColumns[];
+    exportColumns?: ExportColumns[];
     database?: Database;
+    displayLimit?: number;
+    displayOffset?: number;
+    displaySort?: DisplaySort;
+    displayFilter?: string;
+    displayDate?: string; // Format: YYYYMM15
+    exportEscape?: 1;
+    exportDecode?: 0 | 1;
     outputObj?: boolean;
-    display_limit?: number;
-    display_sort?: DisplaySort;
   }
 ): Promise<Record<string, string>[]> {
+  if (displayDate && !displayDateValidator(displayDate)) {
+    throw new Error("Invalid displayDate format. Format: YYYYMM15");
+  }
   const params = {
     url,
     type: "url_organic",
-    export_columns: export_columns.join(","),
+    export_columns: exportColumns.join(","),
     database,
-    display_limit,
-    display_sort,
+    display_limit: displayLimit,
+    display_offset: displayOffset,
+    display_sort: displaySort,
+    display_filter: displayFilter,
+    display_date: displayDate,
+    export_escape: exportEscape,
+    export_decode: exportDecode,
   };
 
   return this.get<Record<string, string>[]>(this.BASE_URL, params, outputObj);

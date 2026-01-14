@@ -2,11 +2,14 @@ import { client } from "..";
 
 client
   .getKeywordOverview({
-    phrase: "apple",
+    phrase: "APPLE",
     database: "us",
   })
   .then((data) => {
     console.log(data);
+  })
+  .catch((error) => {
+    console.error("Error fetching keyword overview data:", error);
   });
 
 // [

@@ -1,5 +1,6 @@
 import { SemrushAPIClient } from "../client";
 import { Country } from "../type/general/country";
+import { displayDateValidator } from "../utils/displayDateValidator";
 
 export type ExportColumns =
   | "target"
@@ -44,20 +45,32 @@ export function getTrafficSummary(
   this: SemrushAPIClient,
   {
     domains,
-    export_columns = ["target", "visits", "users"],
+    exportColumns = ["target", "visits", "users"],
     country,
-    outputObj = true, // Default to true for output object
+    displayDate,
+    displayLimit,
+    displayOffset,
+    outputObj = true,
   }: {
     domains: string[];
-    export_columns?: ExportColumns[];
+    exportColumns?: ExportColumns[];
     country?: Country;
+    displayDate?: string; // Format: YYYYMM15
+    displayLimit?: number;
+    displayOffset?: number;
     outputObj?: boolean;
   }
 ): Promise<Record<string, string>[]> {
+  if (displayDate && !displayDateValidator(displayDate)) {
+    throw new Error("Invalid displayDate format. Format: YYYYMM15");
+  }
   const params = {
     targets: domains.join(","),
-    export_columns: export_columns.join(","),
-    country: country,
+    export_columns: exportColumns.join(","),
+    country,
+    display_date: displayDate,
+    display_limit: displayLimit,
+    display_offset: displayOffset,
   };
 
   return this.get<Record<string, string>[]>(
