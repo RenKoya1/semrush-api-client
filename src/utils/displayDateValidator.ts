@@ -1,6 +1,6 @@
 export function displayDateValidator(displayDate?: string): boolean {
     if (!displayDate) return true;
-    const regex = /^\d{4}(0[1-9]|1[0-2])15$/;
+    const regex = /^\d{4}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])$/;
     return regex.test(displayDate);
 
 }

@@ -24,6 +24,7 @@ export async function getKeywordOrganic(
     database = "us",
     displayLimit = 10,
     displayOffset,
+    displayDate,
     displaySort,
     displayFilter,
     exportEscape,
@@ -32,6 +33,7 @@ export async function getKeywordOrganic(
   }: {
     phrase: string;
     exportColumns?: KeywordExportColumns[];
+    displayDate?: string;
     database?: Database;
     displayLimit?: number;
     displayOffset?: number;
@@ -49,6 +51,7 @@ export async function getKeywordOrganic(
     database,
     display_limit: displayLimit,
     display_offset: displayOffset,
+    display_date: displayDate,
     display_sort: displaySort,
     display_filter: displayFilter,
     export_escape: exportEscape,

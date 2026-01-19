@@ -3,7 +3,7 @@ import { client } from "..";
 client
   .getDomainPaidSearchKeywords({
     domain: "apple.com",
-    display_limit: 4, // Optional, default is 1000
+    displayLimit: 4, // Optional, default is 1000
   })
   .then((data) => {
     console.log(data);

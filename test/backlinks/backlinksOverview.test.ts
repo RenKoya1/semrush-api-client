@@ -3,7 +3,7 @@ import { client } from "..";
 client
   .getBacklinksOverview({
     target: "noimosai.com",
-    target_type: "domain", // Optional, default is "domain"
+    targetType: "domain", // Optional, default is "domain"
   })
   .then((data) => {
     console.log(data);

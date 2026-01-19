@@ -4,6 +4,7 @@ client
   .getKeywordOverview({
     phrase: "APPLE",
     database: "us",
+    displayDate: "20260115",
   })
   .then((data) => {
     console.log(data);

@@ -3,7 +3,7 @@ import { client } from "..";
 client
   .getDomainOrganicSearchKeywords({
     domain: "apple.com",
-    display_limit: 1, // Optional, default is 1000
+    displayLimit: 1, // Optional, default is 1000
   })
   .then((data) => {
     console.log(data);

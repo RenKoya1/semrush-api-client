@@ -82,14 +82,14 @@ export async function getDomainOrganicSearchKeywords(
     displayOffset?: number;
     displaySort?: DomainOrganicDisplaySort;
     displayFilter?: string;
-    displayDate?: string; // Format: YYYYMM15
+    displayDate?: string; // Format: YYYYMM15 or YYYYMMDD
     exportEscape?: 1;
     exportDecode?: 0 | 1;
     outputObj?: boolean;
   }
 ): Promise<Record<string, string>[]> {
   if (displayDate && !displayDateValidator(displayDate)) {
-    throw new Error("Invalid displayDate format. Format: YYYYMM15");
+    throw new Error("Invalid displayDate format. Format: YYYYMM15 or YYYYMMDD");
   }
   const params = {
     type: "domain_organic",

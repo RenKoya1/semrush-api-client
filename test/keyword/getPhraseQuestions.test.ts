@@ -3,7 +3,7 @@ import { client } from "..";
 client
   .getPhraseQuestions({
     phrase: "apple",
-    display_limit: 4, // Optional, default is 1000
+    displayLimit: 4, // Optional, default is 1000
     database: "us",
     displaySort: "nq_desc", // Optional, default is "nq_desc"
   })

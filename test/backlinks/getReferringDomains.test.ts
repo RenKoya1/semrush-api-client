@@ -3,8 +3,8 @@ import { client } from "..";
 client
   .getReferringDomains({
     target: "google.com",
-    target_type: "domain", // Optional, default is "domain"
-    display_limit: 4, // Optional, default is 1000
+    targetType: "domain", // Optional, default is "domain"
+    displayLimit: 4, // Optional, default is 1000
   })
   .then((data) => {
     console.log(data);

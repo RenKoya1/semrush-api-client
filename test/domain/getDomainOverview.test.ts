@@ -3,7 +3,7 @@ import { client } from "..";
 client
   .getDomainOverview({
     domain: "noimosai.com",
-    display_limit: 4, // Optional, default is 1000
+    displayLimit: 4, // Optional, default is 1000
     database: "jp",
   })
   .then((data) => {
