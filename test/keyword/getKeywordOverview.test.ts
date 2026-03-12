@@ -2,9 +2,9 @@ import { client } from "..";
 
 client
   .getKeywordOverview({
-    phrase: "APPLE",
-    database: "us",
-    displayDate: "20260115",
+    phrase: "AIエージェント",
+    database: "jp",
+    displayDate: "20250115",
   })
   .then((data) => {
     console.log(data);

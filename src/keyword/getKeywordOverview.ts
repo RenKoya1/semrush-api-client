@@ -10,20 +10,23 @@ type KeywordExportColumns =
   | "Cp" // Cost per click
   | "Co" // Competition
   | "Nr" // Number of results
+  | "Td" // Trend
   | "In" // Intent
   | "Kd"; // Keyword difficulty
 
 export async function getKeywordOverview(
   this: SemrushAPIClient,
   {
+    type = "phrase_this",
     phrase,
-    exportColumns = ["Dt", "Db", "Ph", "Nq", "Cp", "Co", "Nr", "In", "Kd"],
-    database = "us",
+    exportColumns,
+    database = type === "phrase_this" ? "us" : undefined,
     displayDate,
     exportEscape,
     exportDecode,
     outputObj = true,
   }: {
+    type?: "phrase_all" | "phrase_this";
     phrase: string;
     exportColumns?: KeywordExportColumns[];
     database?: Database;
@@ -36,11 +39,20 @@ export async function getKeywordOverview(
   if (displayDate && !displayDateValidator(displayDate)) {
     throw new Error("Invalid displayDate format. Format: YYYYMM15");
   }
+  // Set default export columns dynamically based on the requested report type
+  // Default columns per API documentation
+  const finalExportColumns = exportColumns
+    ? exportColumns
+    : type === "phrase_all"
+    ? ["Dt", "Db", "Ph", "Nq", "Cp", "Co", "Nr", "In", "Kd"]
+    : ["Ph", "Nq", "Cp", "Co", "Nr", "Td", "In", "Kd"];
+
   const params = {
-    type: "phrase_all",
-    export_columns: exportColumns.join(","),
+    type,
+    export_columns: finalExportColumns.join(","),
     phrase,
-    database,
+    ...(type === "phrase_this" && database ? { database } : {}),
+    ...(type === "phrase_all" && database ? { database } : {}), // Optional filter for phrase_all
     display_date: displayDate,
     export_escape: exportEscape,
     export_decode: exportDecode,

@@ -2,9 +2,10 @@ import { client } from "..";
 
 client
   .getDomainOverview({
-    domain: "noimosai.com",
-    displayLimit: 4, // Optional, default is 1000
-    database: "jp",
+    domain: "sintra.ai",
+    displayLimit: 10, // Optional, default is 1000
+    database: "us",
+    // displayDate: "20251215",
   })
   .then((data) => {
     console.log(data);

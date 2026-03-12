@@ -27,6 +27,7 @@ import {
   getUrlOrganicSearchKeywords,
   getUrlPaidSearchKeywords,
 } from "../url";
+import { countApiUnits } from "../user";
 export class SemrushAPIClient {
   private client: AxiosInstance;
   private api_key: string;
@@ -77,10 +78,8 @@ export class SemrushAPIClient {
     } catch (error) {
       if (axios.isAxiosError(error)) {
         throw new Error(
-          `API request failed: ${error.message}${
-            error.code ? ` (code: ${error.code})` : ""
-          }${
-            error.response?.status ? ` (status: ${error.response.status})` : ""
+          `API request failed: ${error.message}${error.code ? ` (code: ${error.code})` : ""
+          }${error.response?.status ? ` (status: ${error.response.status})` : ""
           }`
         );
       } else {
@@ -121,4 +120,7 @@ export class SemrushAPIClient {
   public getUrlOverview = getUrlOverview;
   public getUrlOrganicSearchKeywords = getUrlOrganicSearchKeywords;
   public getUrlPaidSearchKeywords = getUrlPaidSearchKeywords;
+
+  // User methods
+  public countApiUnits = countApiUnits;
 }
