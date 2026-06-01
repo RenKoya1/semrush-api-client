@@ -1,6 +1,8 @@
 import axios, { type AxiosInstance } from "axios";
 import {
   getDomainOverview,
+  getDomainOverviewOneDatabase,
+  getDomainOverviewHistory,
   getDomainOrganicSearchKeywords,
   getDomainPaidSearchKeywords,
   getAdsCopies,
@@ -12,6 +14,9 @@ import {
   getPhraseQuestions,
   getBroadMatchKeywords,
   getKeywordOrganic,
+  getBatchKeywordOverview,
+  getKeywordPaidResults,
+  getKeywordAdsHistory,
 } from "../keyword";
 import {
   getBacklinksOverview,
@@ -90,6 +95,8 @@ export class SemrushAPIClient {
 
   // Domain methods
   public getDomainOverview = getDomainOverview;
+  public getDomainOverviewOneDatabase = getDomainOverviewOneDatabase;
+  public getDomainOverviewHistory = getDomainOverviewHistory;
   public getDomainOrganicSearchKeywords = getDomainOrganicSearchKeywords;
   public getDomainPaidSearchKeywords = getDomainPaidSearchKeywords;
   public getAdsCopies = getAdsCopies;
@@ -101,6 +108,9 @@ export class SemrushAPIClient {
   public getPhraseQuestions = getPhraseQuestions;
   public getBroadMatchKeywords = getBroadMatchKeywords;
   public getKeywordOrganic = getKeywordOrganic;
+  public getBatchKeywordOverview = getBatchKeywordOverview;
+  public getKeywordPaidResults = getKeywordPaidResults;
+  public getKeywordAdsHistory = getKeywordAdsHistory;
 
   // Backlinks methods
   public getBacklinksOverview = getBacklinksOverview;

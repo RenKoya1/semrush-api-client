@@ -4,3 +4,6 @@ export { getRelatedKeywords } from "./getRelatedKeywords";
 export { getPhraseQuestions } from "./getPhraseQuestions";
 export { getBroadMatchKeywords } from "./getBroadMatchKeywords";
 export { getKeywordOrganic } from "./getKeywordOrganic";
+export { getBatchKeywordOverview } from "./getBatchKeywordOverview";
+export { getKeywordPaidResults } from "./getKeywordPaidResults";
+export { getKeywordAdsHistory } from "./getKeywordAdsHistory";

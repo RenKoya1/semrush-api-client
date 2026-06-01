@@ -1,35 +1,15 @@
 import { SemrushAPIClient } from "../client";
 import { Database } from "../type/general/database";
 import { ExportColumns } from "../type/general/exportColumns";
-import { displayDateValidator } from "../utils/displayDateValidator";
 
-export type DomainOverviewDisplaySort =
-  | "rk_asc"
-  | "rk_desc"
-  | "or_asc"
-  | "or_desc"
-  | "ot_asc"
-  | "ot_desc"
-  | "oc_asc"
-  | "oc_desc"
-  | "ad_asc"
-  | "ad_desc"
-  | "at_asc"
-  | "at_desc"
-  | "ac_asc"
-  | "ac_desc";
+export type DomainOverviewHistoryDisplaySort = "dt_asc" | "dt_desc";
 
-// Domain Overview (all databases) — type=domain_ranks.
-// "database" is optional here; when omitted the request is sent to all
-// regional databases.
-export async function getDomainOverview(
+// Domain Overview (history) — type=domain_rank_history. "database" is required.
+export async function getDomainOverviewHistory(
   this: SemrushAPIClient,
   {
     domain,
     exportColumns = [
-      "Db",
-      "Dt",
-      "Dn",
       "Rk",
       "Or",
       "Ot",
@@ -37,8 +17,7 @@ export async function getDomainOverview(
       "Ad",
       "At",
       "Ac",
-      "Sh",
-      "Sv",
+      "Dt",
       "FKn",
       "FPn",
       "Sr",
@@ -46,40 +25,35 @@ export async function getDomainOverview(
       "St",
       "Stb",
       "Sc",
-      "Srn",
-      "Srl",
     ],
-    database,
-    displayDate,
+    database = "us",
     displayLimit = 10,
     displayOffset,
     displaySort,
+    displayDaily,
     exportEscape,
     outputObj = true,
   }: {
     domain: string;
     exportColumns?: ExportColumns[];
     database?: Database;
-    displayDate?: string; // Format: YYYYMM15
     displayLimit?: number;
     displayOffset?: number;
-    displaySort?: DomainOverviewDisplaySort;
+    displaySort?: DomainOverviewHistoryDisplaySort;
+    displayDaily?: 1; // last 31 days of daily data
     exportEscape?: 1;
     outputObj?: boolean;
   }
 ): Promise<Record<string, string>[]> {
-  if (displayDate && !displayDateValidator(displayDate)) {
-    throw new Error("Invalid displayDate format. Format: YYYYMM15");
-  }
   const params = {
-    type: "domain_ranks",
+    type: "domain_rank_history",
     export_columns: exportColumns.join(","),
     domain,
     database,
-    display_date: displayDate,
     display_limit: displayLimit,
     display_offset: displayOffset,
     display_sort: displaySort,
+    display_daily: displayDaily,
     export_escape: exportEscape,
   };
 

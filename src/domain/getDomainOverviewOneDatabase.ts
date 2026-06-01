@@ -3,7 +3,7 @@ import { Database } from "../type/general/database";
 import { ExportColumns } from "../type/general/exportColumns";
 import { displayDateValidator } from "../utils/displayDateValidator";
 
-export type DomainOverviewDisplaySort =
+export type DomainOverviewOneDatabaseDisplaySort =
   | "rk_asc"
   | "rk_desc"
   | "or_asc"
@@ -19,16 +19,12 @@ export type DomainOverviewDisplaySort =
   | "ac_asc"
   | "ac_desc";
 
-// Domain Overview (all databases) — type=domain_ranks.
-// "database" is optional here; when omitted the request is sent to all
-// regional databases.
-export async function getDomainOverview(
+// Domain Overview (one database) — type=domain_rank. "database" is required.
+export async function getDomainOverviewOneDatabase(
   this: SemrushAPIClient,
   {
     domain,
     exportColumns = [
-      "Db",
-      "Dt",
       "Dn",
       "Rk",
       "Or",
@@ -37,8 +33,6 @@ export async function getDomainOverview(
       "Ad",
       "At",
       "Ac",
-      "Sh",
-      "Sv",
       "FKn",
       "FPn",
       "Sr",
@@ -49,22 +43,20 @@ export async function getDomainOverview(
       "Srn",
       "Srl",
     ],
-    database,
+    database = "us",
     displayDate,
-    displayLimit = 10,
-    displayOffset,
     displaySort,
     exportEscape,
+    exportDecode,
     outputObj = true,
   }: {
     domain: string;
     exportColumns?: ExportColumns[];
     database?: Database;
     displayDate?: string; // Format: YYYYMM15
-    displayLimit?: number;
-    displayOffset?: number;
-    displaySort?: DomainOverviewDisplaySort;
+    displaySort?: DomainOverviewOneDatabaseDisplaySort;
     exportEscape?: 1;
+    exportDecode?: 0 | 1;
     outputObj?: boolean;
   }
 ): Promise<Record<string, string>[]> {
@@ -72,15 +64,14 @@ export async function getDomainOverview(
     throw new Error("Invalid displayDate format. Format: YYYYMM15");
   }
   const params = {
-    type: "domain_ranks",
+    type: "domain_rank",
     export_columns: exportColumns.join(","),
     domain,
     database,
     display_date: displayDate,
-    display_limit: displayLimit,
-    display_offset: displayOffset,
     display_sort: displaySort,
     export_escape: exportEscape,
+    export_decode: exportDecode,
   };
 
   return this.get<Record<string, string>[]>(this.BASE_URL, params, outputObj);

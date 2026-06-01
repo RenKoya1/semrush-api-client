@@ -1,0 +1,50 @@
+import { SemrushAPIClient } from "../client";
+import { Database } from "../type/general/database";
+import { displayDateValidator } from "../utils/displayDateValidator";
+
+type KeywordExportColumns =
+  | "Ph" // Phrase
+  | "Nq" // Number of queries
+  | "Cp" // Cost per click
+  | "Co" // Competition
+  | "Nr" // Number of results
+  | "Td" // Trend
+  | "In" // Intent
+  | "Kd"; // Keyword difficulty
+
+// Batch Keyword Overview — type=phrase_these. Up to 100 keywords per request.
+export async function getBatchKeywordOverview(
+  this: SemrushAPIClient,
+  {
+    phrases,
+    exportColumns = ["Ph", "Nq", "Cp", "Co", "Nr", "Td", "In", "Kd"],
+    database = "us",
+    displayDate,
+    exportEscape,
+    exportDecode,
+    outputObj = true,
+  }: {
+    phrases: string[]; // up to 100 keywords
+    exportColumns?: KeywordExportColumns[];
+    database?: Database;
+    displayDate?: string; // Format: YYYYMM15
+    exportEscape?: 1;
+    exportDecode?: 0 | 1;
+    outputObj?: boolean;
+  }
+): Promise<Record<string, string>[]> {
+  if (displayDate && !displayDateValidator(displayDate)) {
+    throw new Error("Invalid displayDate format. Format: YYYYMM15");
+  }
+  const params = {
+    type: "phrase_these",
+    export_columns: exportColumns.join(","),
+    phrase: phrases.join(";"),
+    database,
+    display_date: displayDate,
+    export_escape: exportEscape,
+    export_decode: exportDecode,
+  };
+
+  return this.get<Record<string, string>[]>(this.BASE_URL, params, outputObj);
+}
