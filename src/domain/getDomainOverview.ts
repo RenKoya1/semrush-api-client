@@ -46,7 +46,7 @@ export async function getDomainOverview(
       "Srn",
       "Srl",
     ],
-    database = "us",
+    database,
     displayDate,
     displayLimit = 10,
     displayOffset,

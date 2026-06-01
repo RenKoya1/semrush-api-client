@@ -4,7 +4,6 @@ client
   .getDomainOverview({
     domain: "noimosai.com",
     displayLimit: 10, // Optional, default is 1000
-    database: "us",
     displayDate: "20260415",
   })
   .then((data) => {

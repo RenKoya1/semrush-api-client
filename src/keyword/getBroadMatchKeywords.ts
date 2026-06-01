@@ -63,9 +63,5 @@ export async function getBroadMatchKeywords(
     export_columns: exportColumns.join(","),
   };
 
-  return this.get<Record<string, string>[]>(
-    this.ANALYTICS_URL,
-    params,
-    outputObj
-  );
+  return this.get<Record<string, string>[]>(this.BASE_URL, params, outputObj);
 }
